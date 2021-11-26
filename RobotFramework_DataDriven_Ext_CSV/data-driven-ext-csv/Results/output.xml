@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.7.9 on win32)" generated="20211125 14:59:01.155" rpa="false" schemaversion="2">
+<suite id="s1" name="Cars" source="C:\Development\RobotScripts\RobotFramework_DataDriven_Ext_CSV\data-driven-ext-csv\Tests\Cars.robot">
+<test id="s1-t1" name="Should see correct error messages with invalid logins">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211125 14:59:01.403" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211125 14:59:01.403" endtime="20211125 14:59:02.899"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:01.403" endtime="20211125 14:59:02.899"/>
+</kw>
+<kw name="Get CSV Data" library="DataManager">
+<var>${InvalidLoginScenarios}</var>
+<arg>${INVALID_CREDENTIALS_PATH_CSV}</arg>
+<kw name="Read Csv File" library="Csv">
+<var>${Data}</var>
+<arg>${FilePath}</arg>
+<msg timestamp="20211125 14:59:02.904" level="INFO">${Data} = [['admin@robotframeworktutorial.com', 'TestPassword!', 'We were unable to sign you in.'], ['bryan@bryanlamb.com', 'TestPassword!', 'We were unable to sign you in.'], ['#BLANK', '#BLANK', 'We were unab...</msg>
+<status status="PASS" starttime="20211125 14:59:02.902" endtime="20211125 14:59:02.905"/>
+</kw>
+<msg timestamp="20211125 14:59:02.905" level="INFO">${InvalidLoginScenarios} = [['admin@robotframeworktutorial.com', 'TestPassword!', 'We were unable to sign you in.'], ['bryan@bryanlamb.com', 'TestPassword!', 'We were unable to sign you in.'], ['#BLANK', '#BLANK', 'We were unab...</msg>
+<status status="PASS" starttime="20211125 14:59:02.901" endtime="20211125 14:59:02.905"/>
+</kw>
+<kw name="Login with Many Invalid Credentials" library="CarsApp">
+<arg>${InvalidLoginScenarios}</arg>
+<for flavor="IN">
+<var>${LoginScenario}</var>
+<value>@{InvalidLoginScenarios}</value>
+<iter>
+<var name="${LoginScenario}">['admin@robotframeworktutorial.com', 'TestPassword!', 'We were unable to sign you in.']</var>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>SignIn.Navigate To</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Navigate To" library="SignIn">
+<kw name="Catenate" library="BuiltIn">
+<var>${SignInUrl}</var>
+<arg>SEPARATOR=/</arg>
+<arg>${BASE_URL.${ENVIRONMENT}}</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211125 14:59:02.908" level="INFO">${SignInUrl} = https://www.cars.com//signin/</msg>
+<status status="PASS" starttime="20211125 14:59:02.907" endtime="20211125 14:59:02.908"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SignInUrl}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211125 14:59:02.909" level="INFO">Opening url 'https://www.cars.com//signin/'</msg>
+<status status="PASS" starttime="20211125 14:59:02.909" endtime="20211125 14:59:07.444"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:02.907" endtime="20211125 14:59:07.444"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:02.907" endtime="20211125 14:59:07.444"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Attempt Login</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Attempt Login" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Enter Credentials" library="SignIn">
+<arg>${Credentials}</arg>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[0]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_EMAIL}</arg>
+<arg>${Credentials[0]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SIGN_IN_EMAIL}</arg>
+<arg>${Credentials[0]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:07.447" level="INFO">Typing text 'admin@robotframeworktutorial.com' into text field 'xpath=//input[@id="email"]'.</msg>
+<status status="PASS" starttime="20211125 14:59:07.447" endtime="20211125 14:59:07.551"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.446" endtime="20211125 14:59:07.552"/>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[1]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_PASSWORD}</arg>
+<arg>${Credentials[1]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SIGN_IN_PASSWORD}</arg>
+<arg>${Credentials[1]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:07.553" level="INFO">Typing text 'TestPassword!' into text field 'xpath=//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20211125 14:59:07.553" endtime="20211125 14:59:07.649"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.552" endtime="20211125 14:59:07.649"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.445" endtime="20211125 14:59:07.649"/>
+</kw>
+<kw name="Click Submit" library="SignIn">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:07.650" level="INFO">Clicking button 'Sign in'.</msg>
+<status status="PASS" starttime="20211125 14:59:07.650" endtime="20211125 14:59:11.811"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.649" endtime="20211125 14:59:11.811"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211125 14:59:12.825" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20211125 14:59:11.811" endtime="20211125 14:59:12.825"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.445" endtime="20211125 14:59:12.826"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:07.444" endtime="20211125 14:59:12.826"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Verify Login Page Error Message</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Verify Login Page Error Message" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Verify Error Message" library="SignIn">
+<arg>${ExpectedErrorMessage}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${ExpectedErrorMessage[2]}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211125 14:59:12.874" level="INFO">Current page contains text 'We were unable to sign you in.'.</msg>
+<status status="PASS" starttime="20211125 14:59:12.828" endtime="20211125 14:59:12.874"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.827" endtime="20211125 14:59:12.875"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.827" endtime="20211125 14:59:12.875"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.826" endtime="20211125 14:59:12.875"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:02.906" endtime="20211125 14:59:12.875"/>
+</iter>
+<iter>
+<var name="${LoginScenario}">['bryan@bryanlamb.com', 'TestPassword!', 'We were unable to sign you in.']</var>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>SignIn.Navigate To</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Navigate To" library="SignIn">
+<kw name="Catenate" library="BuiltIn">
+<var>${SignInUrl}</var>
+<arg>SEPARATOR=/</arg>
+<arg>${BASE_URL.${ENVIRONMENT}}</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211125 14:59:12.876" level="INFO">${SignInUrl} = https://www.cars.com//signin/</msg>
+<status status="PASS" starttime="20211125 14:59:12.876" endtime="20211125 14:59:12.876"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SignInUrl}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211125 14:59:12.876" level="INFO">Opening url 'https://www.cars.com//signin/'</msg>
+<status status="PASS" starttime="20211125 14:59:12.876" endtime="20211125 14:59:16.438"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.876" endtime="20211125 14:59:16.439"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.875" endtime="20211125 14:59:16.439"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Attempt Login</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Attempt Login" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Enter Credentials" library="SignIn">
+<arg>${Credentials}</arg>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[0]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_EMAIL}</arg>
+<arg>${Credentials[0]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SIGN_IN_EMAIL}</arg>
+<arg>${Credentials[0]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:16.444" level="INFO">Typing text 'bryan@bryanlamb.com' into text field 'xpath=//input[@id="email"]'.</msg>
+<status status="PASS" starttime="20211125 14:59:16.443" endtime="20211125 14:59:16.628"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.441" endtime="20211125 14:59:16.628"/>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[1]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_PASSWORD}</arg>
+<arg>${Credentials[1]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SIGN_IN_PASSWORD}</arg>
+<arg>${Credentials[1]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:16.632" level="INFO">Typing text 'TestPassword!' into text field 'xpath=//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20211125 14:59:16.631" endtime="20211125 14:59:16.750"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.629" endtime="20211125 14:59:16.750"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.441" endtime="20211125 14:59:16.750"/>
+</kw>
+<kw name="Click Submit" library="SignIn">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:16.751" level="INFO">Clicking button 'Sign in'.</msg>
+<status status="PASS" starttime="20211125 14:59:16.751" endtime="20211125 14:59:22.591"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.750" endtime="20211125 14:59:22.591"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211125 14:59:23.593" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20211125 14:59:22.591" endtime="20211125 14:59:23.593"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.440" endtime="20211125 14:59:23.594"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:16.439" endtime="20211125 14:59:23.594"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Verify Login Page Error Message</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Verify Login Page Error Message" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Verify Error Message" library="SignIn">
+<arg>${ExpectedErrorMessage}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${ExpectedErrorMessage[2]}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211125 14:59:23.619" level="INFO">Current page contains text 'We were unable to sign you in.'.</msg>
+<status status="PASS" starttime="20211125 14:59:23.596" endtime="20211125 14:59:23.619"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.595" endtime="20211125 14:59:23.620"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.595" endtime="20211125 14:59:23.620"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.594" endtime="20211125 14:59:23.620"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:12.875" endtime="20211125 14:59:23.620"/>
+</iter>
+<iter>
+<var name="${LoginScenario}">['#BLANK', '#BLANK', 'We were unable to sign you in.']</var>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>SignIn.Navigate To</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Navigate To" library="SignIn">
+<kw name="Catenate" library="BuiltIn">
+<var>${SignInUrl}</var>
+<arg>SEPARATOR=/</arg>
+<arg>${BASE_URL.${ENVIRONMENT}}</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211125 14:59:23.623" level="INFO">${SignInUrl} = https://www.cars.com//signin/</msg>
+<status status="PASS" starttime="20211125 14:59:23.622" endtime="20211125 14:59:23.623"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SignInUrl}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211125 14:59:23.623" level="INFO">Opening url 'https://www.cars.com//signin/'</msg>
+<status status="PASS" starttime="20211125 14:59:23.623" endtime="20211125 14:59:27.763"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.621" endtime="20211125 14:59:27.763"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.621" endtime="20211125 14:59:27.763"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Attempt Login</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Attempt Login" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Enter Credentials" library="SignIn">
+<arg>${Credentials}</arg>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[0]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_EMAIL}</arg>
+<arg>${Credentials[0]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<status status="PASS" starttime="20211125 14:59:27.767" endtime="20211125 14:59:27.768"/>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<arg>'${Credentials[1]}' == '#BLANK'</arg>
+<arg>Input Text</arg>
+<arg>${SIGN_IN_PASSWORD}</arg>
+<arg>${Credentials[1]}</arg>
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<status status="PASS" starttime="20211125 14:59:27.769" endtime="20211125 14:59:27.770"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:27.765" endtime="20211125 14:59:27.771"/>
+</kw>
+<kw name="Click Submit" library="SignIn">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211125 14:59:27.773" level="INFO">Clicking button 'Sign in'.</msg>
+<status status="PASS" starttime="20211125 14:59:27.772" endtime="20211125 14:59:33.103"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:27.771" endtime="20211125 14:59:33.103"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211125 14:59:34.116" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20211125 14:59:33.103" endtime="20211125 14:59:34.116"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:27.764" endtime="20211125 14:59:34.116"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:27.764" endtime="20211125 14:59:34.116"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Verify Login Page Error Message</arg>
+<arg>${LoginScenario}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Verify Login Page Error Message" library="CarsApp">
+<arg>${LoginScenario}</arg>
+<kw name="Verify Error Message" library="SignIn">
+<arg>${ExpectedErrorMessage}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${ExpectedErrorMessage[2]}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211125 14:59:34.136" level="INFO">Current page contains text 'We were unable to sign you in.'.</msg>
+<status status="PASS" starttime="20211125 14:59:34.117" endtime="20211125 14:59:34.136"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:34.117" endtime="20211125 14:59:34.136"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:34.117" endtime="20211125 14:59:34.136"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:34.116" endtime="20211125 14:59:34.136"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:23.621" endtime="20211125 14:59:34.136"/>
+</iter>
+<status status="PASS" starttime="20211125 14:59:02.906" endtime="20211125 14:59:34.136"/>
+</for>
+<status status="PASS" starttime="20211125 14:59:02.905" endtime="20211125 14:59:34.137"/>
+</kw>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211125 14:59:34.138" endtime="20211125 14:59:36.820"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:34.137" endtime="20211125 14:59:36.820"/>
+</kw>
+<status status="PASS" starttime="20211125 14:59:01.403" endtime="20211125 14:59:36.820"/>
+</test>
+<doc>Demonstrate a need for data-driven testing</doc>
+<status status="PASS" starttime="20211125 14:59:01.155" endtime="20211125 14:59:36.820"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Cars">Cars</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

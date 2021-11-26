@@ -1,0 +1,137 @@
+LOCATOR Tools for Firefox
+
+FireBug
+Firepath 
+
+
+Robot commands 
+
+-- reporttitle 
+
+example: robot -d RESULTS --reporttitle "my test report" --logtitle "my test report"  Tests.robot 
+
+gives yout report a tittle 
+
+--critical 
+
+example: robot -d RESULTS -c someTag -c someOtherTags  Tests.robot
+
+selected testing with specified tags if failes will mark test report background in red 
+
+--noncritical 
+
+example: robot -d RESULTS -n someTag -n someOtherTags  Tests.robot
+
+non critical will mark test report background green if test in specified tags fails 
+
+--timestapoutputs 
+
+example: robot -d RESULTS -T  Tests.robot
+example: robot -d RESULTS --timestampoutputs  Tests.robot
+
+do not overwrite results but produces ew results with timestamp 
+
+
+--loglever -L 
+
+set log lever to: Trace Debug , info (default is info 
+
+example: robot -d RESULTS -L debug  Tests.robot
+
+### at script level use keyword "SetLog Level" 
+
+
+---------------- Pass Variable by command line 
+
+- v variable_name:variable value 
+
+example: robot -d Results -v BROWSER:ie -v ENVIRONMENT:qa  Tests/amazon.robot 
+
+
+
+########################################### LOCATORS ####################################################
+
+Xptah and CSS syntax
+
+tag['attribute']
+
+examples 
+
+xpath == //a[@id='fool']
+css  == a[id='fool']
+
+### Absolute Locators #####################
+
+- parent , child , sinlings 
+
+in case you find multiple values you need to move a step furter 
+
+xpath == //a[@id='fool']/a   #a is the nextin line tag upward (find PArent) or downward (Child)
+css  == a[id='fool']>a
+
+- Absolute path is the entire path starting beginning of the page 
+
+example:xpath = html/body/div[1]/heather/div/div[2]/div[3]/div/div/a[3]
+
+we can skip everything not needed as direct relationship by using // when building locator from absolute 
+
+Xpath == //a[@id='fool']/form/div[2]/div/input 
+xpath == //a[@id='fool']//input 
+
+CSS == a[id='fool']>form>div[2]>div>input
+CSS == a[id='fool'] input
+
+
+###### Partial Locators ################
+
+
+very usefull for dynamic locators that change in the page 
+
+-------STARTS WITH
+
+Xpath == //input[type='Submit-12345']
+xpath == //input[starts-with(@type,'Submit')]
+
+
+CSS == input[type='Submit-12345']
+CSS == input[type^='Submit']
+
+
+---------ENDS WITH 
+
+Xpath == //input[type='Submit-12345']
+xpath == //input[ends-with(@type,'12345')]   ### it might not work on old version of browsers 
+
+
+CSS == input[type='Submit-12345']
+CSS == input[type$='12345']
+
+-----------CONTAINS
+
+Xpath == //input[type='Submit-12345']
+xpath == //input[contains(@type,'123')]
+
+
+CSS == input[type='Submit-12345']
+CSS == input[type*='12345']
+
+#### for ipelink where no other attribute is found you can use the text function with contains 
+
+xpath == //input[contains(text(),'hyperlink partial or full text ')]
+xpath == //input[contains(.,'hyperlink partial or full text ')]   ## you can shorten it by using .,
+
+
+####################### Find Multiple Locators #################################
+
+Robot selenium keyword to use is 
+
+
+xpath should match x times 
+
+
+
+
+
+
+
+

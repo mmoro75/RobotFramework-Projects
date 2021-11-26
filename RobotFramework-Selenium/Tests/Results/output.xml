@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.7.9 on win32)" generated="20211117 15:13:08.139" rpa="false" schemaversion="2">
+<suite id="s1" name="Amazon" source="C:\Development\RobotScripts\RobotFramework-Selenium\Tests\amazon.robot">
+<test id="s1-t1" name="Navigate main page">
+<kw name="Begin Web Test" library="common" type="SETUP">
+<kw name="open browser">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="maximize browser window">
+<status status="NOT RUN" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="End Web Test" library="common" type="TEARDOWN">
+<kw name="close browser">
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</kw>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Setup failed:
+Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser
+
+Also teardown failed:
+Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</test>
+<test id="s1-t2" name="Main page click picture">
+<kw name="Begin Web Test" library="common" type="SETUP">
+<kw name="open browser">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="maximize browser window">
+<status status="NOT RUN" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="End Web Test" library="common" type="TEARDOWN">
+<kw name="close browser">
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</kw>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Setup failed:
+Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser
+
+Also teardown failed:
+Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</test>
+<test id="s1-t3" name="Main page log in">
+<kw name="Begin Web Test" library="common" type="SETUP">
+<kw name="open browser">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="maximize browser window">
+<status status="NOT RUN" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<kw name="End Web Test" library="common" type="TEARDOWN">
+<kw name="close browser">
+<msg timestamp="20211117 15:13:08.425" level="FAIL">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</kw>
+<tag>Functional</tag>
+<status status="FAIL" starttime="20211117 15:13:08.425" endtime="20211117 15:13:08.425">Setup failed:
+Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser
+
+Also teardown failed:
+Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</test>
+<test id="s1-t4" name="Buy a Product">
+<kw name="Begin Web Test" library="common" type="SETUP">
+<kw name="open browser">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<msg timestamp="20211117 15:13:08.440" level="FAIL">Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440"/>
+</kw>
+<kw name="maximize browser window">
+<status status="NOT RUN" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440"/>
+</kw>
+<kw name="End Web Test" library="common" type="TEARDOWN">
+<kw name="close browser">
+<msg timestamp="20211117 15:13:08.440" level="FAIL">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</msg>
+<status status="FAIL" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440"/>
+</kw>
+<status status="FAIL" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440">Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</kw>
+<tag>Fucntional</tag>
+<status status="FAIL" starttime="20211117 15:13:08.440" endtime="20211117 15:13:08.440">Setup failed:
+Multiple keywords with name 'open browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Open Browser
+    SeleniumLibrary.Open Browser
+
+Also teardown failed:
+Multiple keywords with name 'close browser' found. Give the full name of the keyword you want to use:
+    Selenium2Library.Close Browser
+    SeleniumLibrary.Close Browser</status>
+</test>
+<doc>this is a test for amazon main page</doc>
+<status status="FAIL" starttime="20211117 15:13:08.139" endtime="20211117 15:13:08.440"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Fucntional</stat>
+<stat pass="0" fail="1" skip="0">Functional</stat>
+<stat pass="0" fail="2" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="Amazon">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211117 15:13:08.409" level="ERROR">Error in file 'C:\Development\RobotScripts\RobotFramework-Selenium\Resources\amazon.robot' on line 7: Resource setting requires value.</msg>
+<msg timestamp="20211117 15:13:08.409" level="ERROR">Error in file 'C:\Development\RobotScripts\RobotFramework-Selenium\Resources\amazon.robot' on line 8: Resource setting requires value.</msg>
+</errors>
+</robot>

@@ -1,0 +1,54 @@
+# Scalar variables are variables that holds a single value #
+${BROWSER} =    chrome
+${START_URL} =    http://www.amazon.co.uk
+${SEARCH_TERM} =    ferrari 458
+
+#to create the variable within the test
+create variable for test amazon
+${your variable} = Set Variable data
+
+#List variables can hold multiple values i.e if you want to pass username/password to a script
+#Syntax
+ @{your variable} =    data1 data2 data2
+ to create the variable within the test
+ @{your variable} =    Create List data1 data2
+ for retriving
+ [LOG] @{your variable}[0] (use index in [] for the value you want to get
+
+## SCOPE of Variables ###
+## Variables can be GLOBAL accessible to entire project or SUITE and TEST CASES variable accessible only for a specific *** test cases ***
+## keyword variables are test only *** variables ***
+## name convention is to use upper case letter for global variables &{BROWSER} and lower case for other variables ${my_data}
+
+
+*** Test Cases ****
+Using Variable 1
+
+    Begin Web Test1   www.amazon.co.uk    ie
+
+
+Using Variable 2
+    @{url+browser} =    create list    www.amazon.co.uk    ie
+    Begin Web Test2    @{url_browser}
+
+
+
+
+*** Keywords ***
+# you can create keyward variables with arguments and pass them at runtime
+Begin Web Test1
+    [Arguments]      ${url}    ${browser}
+    Open browser     ${url}    ${browser}[1]
+
+Begin Web Test2
+    [Arguments]      @{url_browser}
+    Open browser     @{url_browser}[0]    @{url_browser}[1]
+
+
+##### Pass Variable value by command line without changing the script ########
+
+use the featurs -v MY_VARIABLE:New Value option on command line (variable name with no dollar : value )
+
+# examples
+
+robot -d Results -v BROWSER:firefox -v SEARCH_TERM:"lamborghini" -i Smoke Test/amazon.robot

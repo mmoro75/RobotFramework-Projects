@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.7.9 on win32)" generated="20211117 16:17:54.297" rpa="false" schemaversion="2">
+<suite id="s1" name="Amazon" source="C:\Development\RobotScripts\RobotFramework-Selenium\Tests\amazon.robot">
+<test id="s1-t1" name="Buy a Product">
+<kw name="Begin Web Test" library="common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211117 16:17:54.519" level="INFO">Opening browser 'Ie' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211117 16:17:54.519" endtime="20211117 16:17:56.504"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211117 16:17:56.504" endtime="20211117 16:17:56.527"/>
+</kw>
+<status status="PASS" starttime="20211117 16:17:54.519" endtime="20211117 16:17:56.527"/>
+</kw>
+<kw name="Navigate to search tab" library="amazon">
+<kw name="Log" library="BuiltIn">
+<arg>I am pointing the curson on search tab</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211117 16:17:56.527" level="INFO">I am pointing the curson on search tab</msg>
+<status status="PASS" starttime="20211117 16:17:56.527" endtime="20211117 16:17:56.527"/>
+</kw>
+<kw name="Load" library="MainPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${START_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211117 16:17:56.527" level="INFO">Opening url 'http://www.amazon.co.uk'</msg>
+<status status="PASS" starttime="20211117 16:17:56.527" endtime="20211117 16:18:35.481"/>
+</kw>
+<status status="PASS" starttime="20211117 16:17:56.527" endtime="20211117 16:18:35.481"/>
+</kw>
+<status status="PASS" starttime="20211117 16:17:56.527" endtime="20211117 16:18:35.481"/>
+</kw>
+<kw name="Search for Product" library="amazon">
+<kw name="Log" library="BuiltIn">
+<arg>User search for product</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211117 16:18:35.481" level="INFO">User search for product</msg>
+<status status="PASS" starttime="20211117 16:18:35.481" endtime="20211117 16:18:35.481"/>
+</kw>
+<kw name="Enter search text" library="TopNav">
+<kw name="Enter search term" library="TopNav">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${TOPNAV_SEARCH_BAR}</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211117 16:18:35.481" level="INFO">Typing text 'ferrari 458' into text field 'id=twotabsearchtextbox'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211117 16:18:36.245" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211117 16:18:36.161" endtime="20211117 16:18:36.245"/>
+</kw>
+<msg timestamp="20211117 16:18:36.245" level="FAIL">Element with locator 'id=twotabsearchtextbox' not found.</msg>
+<status status="FAIL" starttime="20211117 16:18:35.481" endtime="20211117 16:18:36.245"/>
+</kw>
+<status status="FAIL" starttime="20211117 16:18:35.481" endtime="20211117 16:18:36.245"/>
+</kw>
+<kw name="Submit search" library="TopNav">
+<status status="NOT RUN" starttime="20211117 16:18:36.245" endtime="20211117 16:18:36.245"/>
+</kw>
+<status status="FAIL" starttime="20211117 16:18:35.481" endtime="20211117 16:18:36.245"/>
+</kw>
+<kw name="Verify search completed" library="SearchResults">
+<status status="NOT RUN" starttime="20211117 16:18:36.245" endtime="20211117 16:18:36.245"/>
+</kw>
+<status status="FAIL" starttime="20211117 16:18:35.481" endtime="20211117 16:18:36.245"/>
+</kw>
+<kw name="Select product from search result" library="amazon">
+<status status="NOT RUN" starttime="20211117 16:18:36.245" endtime="20211117 16:18:36.245"/>
+</kw>
+<kw name="Add product to cart" library="amazon">
+<status status="NOT RUN" starttime="20211117 16:18:36.245" endtime="20211117 16:18:36.245"/>
+</kw>
+<kw name="Begin checkout" library="amazon">
+<status status="NOT RUN" starttime="20211117 16:18:36.261" endtime="20211117 16:18:36.261"/>
+</kw>
+<kw name="End Web Test" library="common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211117 16:18:36.261" endtime="20211117 16:18:39.432"/>
+</kw>
+<status status="PASS" starttime="20211117 16:18:36.261" endtime="20211117 16:18:39.432"/>
+</kw>
+<tag>Functional</tag>
+<status status="FAIL" starttime="20211117 16:17:54.519" endtime="20211117 16:18:39.432">Element with locator 'id=twotabsearchtextbox' not found.</status>
+</test>
+<doc>this is a test for amazon app</doc>
+<status status="FAIL" starttime="20211117 16:17:54.297" endtime="20211117 16:18:39.432"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Functional</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Amazon">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
